@@ -1,6 +1,6 @@
 # steamlink-archlinux
 Create Archlinux boot medium for steamlink with one script!
-Archlinux with linux 5.4.24 (Kernel can be updated inside arch once you flash it.)
+Archlinux with linux 6.12.57 LTS (Kernel can be updated inside arch once you flash it.)
 
 ## Steps
 
