@@ -8,10 +8,11 @@ mount -t proc proc /mnt/disk/proc
 mount -o rbind /sys /mnt/disk/sys
 mount -o rbind /dev /mnt/disk/dev
 
-zImage="zImage";
+ArmDtb="/boot/mykern/berlin2cd-valve-steamlink.dtb";
+zImage="/boot/mykern/zImage";
 sync
 
 echo "Executing stuff"
 insmod /mnt/disk/boot/kexec_load.ko
-chroot /mnt/disk/ /usr/bin/kexec -l /boot/${zImage} --initrd /boot/initramfs-linux-steam.img --dtb /boot/berlin2cd-valve-steamlink.dtb --command-line "root=/dev/sda1 rootwait rw init=/lib/systemd/systemd console=ttyS0,115200n8 usbcore.autosuspend=-1"
+chroot /mnt/disk/ /usr/bin/kexec -l ${zImage} --initrd /boot/initramfs-linux.img --dtb ${ArmDtb} --command-line "root=/dev/sda1 rootwait rw init=/lib/systemd/systemd console=ttyS0,115200n8 usbcore.autosuspend=-1"
 chroot /mnt/disk/ /usr/bin/kexec -e
