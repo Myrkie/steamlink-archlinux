@@ -9,6 +9,7 @@ echo ""
 echo "Please enter /dev/ address of your USB disk from above."
 echo "For example /dev/sdb1"
 echo "CAUTION! That device will be formatted and you will lose any data in there!"
+
 kernel_name="6.12.57-MYKERN-LTS-11-9"
 temp_dir="/media/disk"
 read -r devaddress
