@@ -42,7 +42,7 @@ echo [4/10] "Copying kexec_load.ko"
 sudo cp kexec_load.ko $temp_sysroot/boot/
 echo [5/10] "Copying kernel"
 sudo cp -r mykern/ $temp_sysroot/boot/
-sudo cp initramfs-linux.img /media/disk/boot/
+sudo cp initramfs-linux.img $temp_sysroot/boot/
 sudo cp linux-armv7-steamlink.preset $temp_sysroot/etc/mkinitcpio.d/
 echo [6/10] "Copying kexec and 755 on kexec"
 sudo cp kexec $temp_sysroot/usr/bin
