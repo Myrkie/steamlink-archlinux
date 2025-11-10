@@ -8,6 +8,10 @@ Run `boot_device_creator.sh` from bash (terminal)
 
 Be careful while specifying device addresses as the script WILL wipe all of data of that device. Any data lost or any harm done is your own responsibility.
 
+
+## Default hostname as defined by kernal compile:
+Hostname: `steamlink.internal`
+
 ## Default passwords:
 
 ### Default user

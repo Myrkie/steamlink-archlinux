@@ -1,4 +1,4 @@
-# mkinitcpio preset file for the 'linux-armv7' package
+# mkinitcpio preset file for kernel '6.12.57-MYKERN-LTS-11-9'
 
 #ALL_config="/etc/mkinitcpio.conf"
 ALL_kver="/boot/mykern/zImage"
