@@ -19,3 +19,7 @@ while true; do
         * ) echo "Invalid response. Please answer y or n.";;
     esac
 done
+
+echo "upgrade complete you can now exit the chroot, or install additional packages now."
+
+rm -- "$0"
