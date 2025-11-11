@@ -1,25 +1,27 @@
 #!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
 
-echo "Initializing pacman keys"
-su -c "pacman-key --init"
-su -c "pacman-key --populate archlinuxarm"
+# shellcheck disable=SC2120
+require_root() {
+    if [[ "$(id -u)" -ne 0 ]]; then
+        echo "Root privileges required. Re-running with sudo..."
+        exec sudo "$0" "$@"
+    fi
+}
 
-while true; do
-    read -rp "Do you want to remove the preinstalled ARCH kernel? (y/n) " yn
-    case $yn in
-        [Yy]* ) 
-            echo "Proceeding..."
-            su -c "pacman -R linux-armv7"
-            break
-            ;;
-        [Nn]* ) 
-            echo "Keeping the kernel."
-            break
-            ;;
-        * ) echo "Invalid response. Please answer y or n.";;
-    esac
-done
+init_pacman(){
+    echo "Initializing pacman keys"
+    pacman-key --init
+    pacman-key --populate archlinuxarm
+}
 
-echo "upgrade complete you can now exit the chroot, or install additional packages now."
+
+
+require_root
+init_pacman
+
+echo "Init complete you can now exit chroot, or install additional packages now."
+echo "You will have to run (pacman -Syu) and (mkinitcpio -P) manually on bare metal"
 
 rm -- "$0"
