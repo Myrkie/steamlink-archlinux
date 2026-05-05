@@ -3,7 +3,7 @@ set -euo pipefail
 IFS=$'\n\t'
 
 # === Constants (Do not change) ===
-kernel_name="6.12.57-MYKERN-LTS-5-5"
+kernel_name="6.12.85-MYKERN-LTS-5-5"
 temp_sysroot="/media/temp_sysroot_arch"
 factory_test_folder="$temp_sysroot/steamlink/factory_test"
 home_scripts_folder="$temp_sysroot/home/alarm/scripts"
